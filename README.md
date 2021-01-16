@@ -1,11 +1,13 @@
 # PS4-OPKG-Update-Downloader
-Tool written in Python to download Official PS4 update PKGs.
+Tool written in Python to download Official PS4 update PKGs.   
+[Windows binaries]()
+![](https://i.imgur.com/y2KBYoR.png)
 
 # Features
 - Drag and drop game dump folder.
 - Merge update pieces.
 - Choose output directory.
-- Resumable from restart.
+- Resumable from script restart.
 
 # Setup
 1. Fill in config.json.
