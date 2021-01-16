@@ -10,7 +10,7 @@ Tool written in Python to download Official PS4 update PKGs. Unpolished, but sho
 - Resumable from script restart.
 
 # Setup
-1. Fill in config.json.
+1. Fill in `config.json`.
 
 # Usage
 1. Drag game dump folder onto `ps4_opkg_update_downloader.py`/`ps4_opkg_update_downloader_x64.exe`.
