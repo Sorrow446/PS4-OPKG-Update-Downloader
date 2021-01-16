@@ -54,7 +54,7 @@ def parse_meta(html):
 	try:
 		game_title = soup.find('h3', {'class': 'h3-title'}).text.strip()
 	except AttributeError:
-		raise Exception('Couldn\'t find update for specified CUSA.')
+		raise Exception('Couldn\'t find any updates for specified CUSA.')
 	containers = soup.find_all('div', {'class': 'patch-container'})
 	for num, container in enumerate(containers, 1):
 		rows = container.find_all('div', {'class': 'col-auto ml-auto py-2'})
@@ -78,7 +78,7 @@ def get_choice(parsed_meta):
 		except ValueError:
 			continue
 		if choice in keys:
-			print(parsed_meta[choice]['update_ver'] + " chosen.")
+			print(parsed_meta[choice]['update_ver'], "chosen.")
 			return parsed_meta[choice]['key']
 
 def download_piece(url):	
