@@ -1,6 +1,6 @@
 # PS4-OPKG-Update-Downloader
 Tool written in Python to download Official PS4 update PKGs. Unpolished, but should work fine.    
-[Windows binaries]()
+[Windows binaries](https://github.com/Sorrow446/PS4-OPKG-Update-Downloader/releases)
 ![](https://i.imgur.com/y2KBYoR.png)
 
 # Features
