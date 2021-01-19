@@ -143,7 +143,7 @@ def main(cusa):
 		print("Downloading piece {} of {}:".format(num, total))
 		download_piece(url)
 	if cfg['merge'] == True:
-		if total < 1:
+		if total > 1:
 			merge_pieces(urls[0], total)
 		else:
 			print("Merging skipped as there is only one piece.")
