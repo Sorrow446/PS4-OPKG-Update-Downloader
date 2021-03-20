@@ -23,7 +23,7 @@ def parse_cfg():
 	with open('config.json') as f:
 		return json.load(f)
 
-def dir_setup(path):	
+def dir_setup(path):
 	if path and not os.path.isdir(path):
 		os.makedirs(path)
 		
@@ -81,7 +81,7 @@ def get_choice(parsed_meta):
 			print(parsed_meta[choice]['update_ver'], "chosen.")
 			return parsed_meta[choice]['key']
 
-def download_piece(url):	
+def download_piece(url):
 	path = os.path.join(cfg['output_dir'], os.path.basename(url))
 	if os.path.isfile(path):
 		print("Piece already exists locally. Skipped.")
@@ -98,8 +98,8 @@ def download_piece(url):
 						pb.update(len(chunk))
 	os.rename(pre_path, path)
 
-def get_urls(key):
-	session.headers.update({'X-Requested-With': 'XMLHttpRequest'})
+def get_urls(key, cusa):
+	session.headers.update({'X-Requested-With': 'XMLHttpRequest', 'referer': 'https://orbispatches.com/'+cusa})
 	r = session.post('https://orbispatches.com/api/patch.php', data={'key': key})
 	del session.headers['X-Requested-With']
 	r.raise_for_status()
@@ -137,7 +137,7 @@ def main(cusa):
 	html = get_html(cusa)
 	parsed_meta = parse_meta(html)
 	key = get_choice(parsed_meta)
-	urls = get_urls(key)
+	urls = get_urls(key, cusa)
 	total = len(urls)
 	for num, url in enumerate(urls, 1):
 		print("Downloading piece {} of {}:".format(num, total))
