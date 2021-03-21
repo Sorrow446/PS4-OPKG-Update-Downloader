@@ -99,9 +99,13 @@ def download_piece(url):
 	os.rename(pre_path, path)
 
 def get_urls(key, cusa):
-	session.headers.update({'X-Requested-With': 'XMLHttpRequest', 'Referer': 'https://orbispatches.com/'+cusa})
+	session.headers.update({
+		'X-Requested-With': 'XMLHttpRequest',
+		'Referer': 'https://orbispatches.com/' + cusa
+	})
 	r = session.post('https://orbispatches.com/api/patch.php', data={'key': key})
 	del session.headers['X-Requested-With']
+	del session.headers['Referer']
 	r.raise_for_status()
 	resp = r.json()
 	if resp['success'] == False:
